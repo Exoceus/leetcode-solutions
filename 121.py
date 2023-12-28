@@ -2,6 +2,7 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         return self.min_max(prices)
 
+    # blind
     def naive(self, prices):
         profit = 0
         for i in range(len(prices)):
@@ -10,6 +11,7 @@ class Solution:
                     profit = prices[j] - prices[i]
         return profit
     
+    # blind
     def max_price(self, prices):
         profit = 0
 
