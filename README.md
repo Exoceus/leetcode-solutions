@@ -4,7 +4,11 @@
 
 ## Structure
 
-Multiple solutions are generally given per problem. These are generally in order of most naive/easiest solution at the start (i.e. the one that seemed most intuitive or straightforward to me) and more complex ones towards the end. Although all given solutions are ones that passed the Leetcode timing requirements
+Multiple solutions are generally given per problem. These are generally in order of most naive/easiest solution at the start (i.e. the one that seemed most intuitive or straightforward to me) and more complex ones towards the end. Although all given solutions are ones that passed the Leetcode timing requirements.
+
+## Languages
+
+If I am comfortable with the underlying idea of a question, I try to use C++ to force myself to be more verbose. Whereas, I will try to use Python where I don't feel like I am fully comfortable with the question. Thus, for harder questions, I try to do it first in Python and then come back and do it in C++.
 
 ## Labels
 
