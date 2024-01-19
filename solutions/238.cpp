@@ -3,7 +3,7 @@ class Solution
 public:
     vector<int> productExceptSelf(vector<int> &nums)
     {
-        return prefixSuffixArrs(nums);
+        return twoPass(nums);
     }
 
     // inspired
@@ -12,7 +12,7 @@ public:
         int prefix[nums.size()];
         int suffix[nums.size()];
 
-        // this could could be cleaner
+        // could be cleaner
         int curr_prefix = nums[0]; // we know nums length >= 2
         prefix[0] = curr_prefix;
         for (int i = 1; i < nums.size(); i++)
@@ -37,6 +37,29 @@ public:
             final.push_back(prefix[i - 1] * suffix[i + 1]);
         }
         final.push_back(prefix[nums.size() - 2]);
+        return final;
+    }
+
+    // blind (improvement of inspired soln)
+    vector<int> twoPass(vector<int> &nums)
+    {
+        // write suffix_arr in same spot
+        vector<int> final;
+
+        int prev_prefix = nums[0]; // we know nums length >= 2
+        final.push_back(1);
+        for (int i = 1; i < nums.size(); i++)
+        {
+            final.push_back(prev_prefix);
+            prev_prefix *= nums[i];
+        }
+
+        int prev_suffix = nums[nums.size() - 1];
+        for (int i = nums.size() - 2; i >= 0; i--)
+        {
+            final[i] *= prev_suffix;
+            prev_suffix *= nums[i];
+        }
         return final;
     }
 };
